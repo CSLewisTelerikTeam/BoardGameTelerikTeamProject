@@ -1,8 +1,62 @@
-﻿<Window x:Class="BoardGame.MainWindow"
+﻿<Window x:Class="OOPGame_WoWChess.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" 
+        WindowStyle="None" WindowState="Maximized">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Button Background="Transparent" Name="WarchiefUnit" Click="WarchiefUnit_Click"
+                    Grid.Row="0" Grid.Column="0">
+            <Image Name="Img11" Grid.Row="0" Grid.Column="0"></Image>
+        </Button>
+
+
+        <Button Background="Transparent" Name="CaptainUnit" Click="CaptainUnit_Click"
+                 Grid.Row="0" Grid.Column="1">
+            <Image Name="Img12" Grid.Row="0" Grid.Column="1"></Image>
+        </Button>
+
+        <Button Background="Transparent" Name="KingUnit"
+                Grid.Row="0" Grid.Column="2" Click="KingUnit_Click">
+            <Image Name="Img13" Grid.Row="0" Grid.Column="2"></Image>
+        </Button>
+        <Image Name="Img14" Grid.Row="0" Grid.Column="3"></Image>
+        <Image Name="Img15" Grid.Row="0" Grid.Column="4"></Image>
+        <Image Name="Img16" Grid.Row="0" Grid.Column="5"></Image>
+        <Image Name="Img17" Grid.Row="0" Grid.Column="6"></Image>
+        <Image Name="Img18" Grid.Row="0" Grid.Column="7"></Image>
+        <Image Name="Img1" Grid.Row="6" Grid.Column="0"></Image>
+        <Image Name="Img2" Grid.Row="6" Grid.Column="1"></Image>
+        <Image Name="Img3" Grid.Row="6" Grid.Column="2"></Image>
+
+        <Button Background="Transparent" Name="SquireUnit" Click="SquireUnit_Click"
+                Grid.Row="6" Grid.Column="3">
+            <Image Name="Img4" Grid.Row="6" Grid.Column="3"></Image>
+        </Button>
+
+        <Image Name="Img5" Grid.Row="6" Grid.Column="4"></Image>
+        <Image Name="Img6" Grid.Row="6" Grid.Column="5"></Image>
+        <Image Name="Img7" Grid.Row="6" Grid.Column="6"></Image>
+        <Image Name="Img8" Grid.Row="6" Grid.Column="7"></Image>
     </Grid>
 </Window>
