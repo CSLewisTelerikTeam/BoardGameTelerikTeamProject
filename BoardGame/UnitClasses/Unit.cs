@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Windows;
 
 namespace BoardGame.UnitClasses
 {
@@ -11,10 +11,29 @@ namespace BoardGame.UnitClasses
 
     abstract class Unit
     {
+        //Private Fields 
         private int healthLevel;
         private int attackLevel;
+        private Point unitPosition;              
+        
+        //Properties over private fields, in case need of data validation
+        public int HealthLevel
+        {
+            get {return this.healthLevel;}
+            set {this.healthLevel = value; }
+        }
+        
+        public int AttackLevel
+        {
+            get { return this.attackLevel; }
+            set { this.attackLevel = value; }
+        }
 
-        public int HealthLevel { get; set; }
-        public int AttackLevel { get; set; }
+        public Point UnitPosition
+        {
+            get { return this.unitPosition; }
+            set { this.unitPosition = value; }
+        }
+        
     }
 }

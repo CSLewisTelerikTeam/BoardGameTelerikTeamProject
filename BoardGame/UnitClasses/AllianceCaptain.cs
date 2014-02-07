@@ -18,8 +18,7 @@ namespace BoardGame.UnitClasses
             this.UnitType = AllianceTypeUnits.Captain;
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
-        }
-                
+        }               
         
     }
 
