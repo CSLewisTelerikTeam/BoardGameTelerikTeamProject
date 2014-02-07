@@ -39,7 +39,9 @@
         <Button Background="Transparent" Name="KingUnit"
                 Grid.Row="0" Grid.Column="2" Click="KingUnit_Click">
             <Image Name="Img13" Grid.Row="0" Grid.Column="2"></Image>
-        </Button>
+        </Button>       
+
+
         <Image Name="Img14" Grid.Row="0" Grid.Column="3"></Image>
         <Image Name="Img15" Grid.Row="0" Grid.Column="4"></Image>
         <Image Name="Img16" Grid.Row="0" Grid.Column="5"></Image>

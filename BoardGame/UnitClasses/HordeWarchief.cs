@@ -19,5 +19,6 @@ namespace BoardGame.UnitClasses
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
         }
+        
     }
 }

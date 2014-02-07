@@ -62,35 +62,14 @@ namespace OOPGame_WoWChess
             Img18.Source = king.Source;
 
             //WarchiefCanvas.   
-        }        
-
-        //Alliance playing units. These instances will be used in the game.
+        }  
         
-        static AllianceCaptain allianceCaptain = new AllianceCaptain();
-        static AllianceKing allianceKing = new AllianceKing();
-        static AllianceMage allianceMage = new AllianceMage();
-        static AlliancePriest alliancePriest = new AlliancePriest();
-        static AllianceSergeant allianceSergeant = new AllianceSergeant();
-        static AllianceSquire allianceSquire = new AllianceSquire();
-        static AllianceWarGolem allianceWarGolem = new AllianceWarGolem();
-
-        //Horde playing units. These instances will be used in the game.
-
-        static HordeCommander hordeCommander = new HordeCommander();
-        static HordeDemolisher hordeDemolisher = new HordeDemolisher();
-        static HordeGrunt hordeGrunt = new HordeGrunt();
-        static HordeShaman hordeShaman = new HordeShaman();
-        static HordeWarchief hordeWarchief = new HordeWarchief();
-        static HordeWarlock hordeWarlock = new HordeWarlock();
-        static HordeWarlord hordeWarlord = new HordeWarlord();
-                
-
         private void WarchiefUnit_Click(object sender, RoutedEventArgs e)
         {
             MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/warchiefVoice.mp3"));
-            mediaPlayer.Play();            
-                        
+            mediaPlayer.Play();           
+            
         }
 
         private void CaptainUnit_Click(object sender, RoutedEventArgs e)
@@ -113,5 +92,6 @@ namespace OOPGame_WoWChess
             mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/squireVoice.mp3"));
             mediaPlayer.Play();
         }
+        
     }
 }

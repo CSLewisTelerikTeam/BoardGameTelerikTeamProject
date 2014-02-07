@@ -7,10 +7,11 @@ using System.Threading.Tasks;
 namespace BoardGame.UnitClasses
 {
     //Interfaces describe the behavior of the units
-
+    
     interface IMoveable
     {
-        void Move();
+        //Return true if trip to the destination position is possible
+        bool Move(Position destination);
     }
 
     interface IAttacking
