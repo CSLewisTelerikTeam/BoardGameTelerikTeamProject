@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BoardGame.UnitClasses;
 
 namespace OOPGame_WoWChess
 {
@@ -60,15 +61,16 @@ namespace OOPGame_WoWChess
             Img17.Source = grunt.Source;
             Img18.Source = king.Source;
 
-            //WarchiefCanvas.
+            //WarchiefCanvas.           
 
-        }
+        }        
 
         private void WarchiefUnit_Click(object sender, RoutedEventArgs e)
         {
             MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/warchiefVoice.mp3"));
             mediaPlayer.Play();
+            
         }
 
         private void CaptainUnit_Click(object sender, RoutedEventArgs e)
