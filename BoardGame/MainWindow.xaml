@@ -21,8 +21,12 @@
                 <RowDefinition/>
                 <RowDefinition/>
                 <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
             </Grid.RowDefinitions>
             <Grid.ColumnDefinitions>
+                <ColumnDefinition/>
+                <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
@@ -34,14 +38,14 @@
             <Button Background="Transparent" Name="WarchiefUnit" Click="WarchiefUnit_Click"
                      MouseEnter="WarchiefUnit_MouseEnter" MouseLeave="WarchiefUnit_MouseLeave"
                      Grid.Row="0" Grid.Column="0">
-                <Canvas Width="120" Height="120">
-                    <Image Name="Img11" Grid.Row="0" Grid.Column="0"  Width="120" Height="120"></Image>
-                    <TextBlock FontFamily="Cooper Black" Foreground="White" Canvas.Left="0" Canvas.Top="9"
-                               FontWeight="Bold" FontSize="18">100</TextBlock>
-                    <TextBlock FontFamily="Cooper Black" Foreground="White" Canvas.Left="0" Canvas.Top="90"
-                               FontWeight="Bold" FontSize="18">100</TextBlock>
-                    <TextBlock FontFamily="Cooper Black" Foreground="White" Canvas.Left="95" Canvas.Top="90"
-                               FontWeight="Bold" FontSize="18">100</TextBlock>
+                <Canvas Width="93" Height="93">
+                    <Image Name="Img11" Grid.Row="0" Grid.Column="0" Width="93" Height="93"></Image>
+                    <TextBlock FontFamily="Cooper Black" Foreground="White" Canvas.Left="0" Canvas.Top="5"
+                               FontWeight="Bold" FontSize="18">10</TextBlock>
+                    <TextBlock FontFamily="Cooper Black" Foreground="White" Canvas.Left="0" Canvas.Top="70"
+                               FontWeight="Bold" FontSize="18">10</TextBlock>
+                    <TextBlock FontFamily="Cooper Black" Foreground="White" Canvas.Left="75" Canvas.Top="70"
+                               FontWeight="Bold" FontSize="18">10</TextBlock>
                 </Canvas>
             </Button>
 
@@ -60,19 +64,19 @@
             <Image Name="Img16" Grid.Row="0" Grid.Column="5"></Image>
             <Image Name="Img17" Grid.Row="0" Grid.Column="6"></Image>
             <Image Name="Img18" Grid.Row="0" Grid.Column="7"></Image>
-            <Image Name="Img1" Grid.Row="6" Grid.Column="0"></Image>
-            <Image Name="Img2" Grid.Row="6" Grid.Column="1"></Image>
-            <Image Name="Img3" Grid.Row="6" Grid.Column="2"></Image>
+            <Image Name="Img1" Grid.Row="7" Grid.Column="0"></Image>
+            <Image Name="Img2" Grid.Row="7" Grid.Column="1"></Image>
+            <Image Name="Img3" Grid.Row="7" Grid.Column="2"></Image>
 
             <Button Background="Transparent" Name="SquireUnit" Click="SquireUnit_Click"
-                    Grid.Row="6" Grid.Column="3">
-                <Image Name="Img4" Grid.Row="6" Grid.Column="3"></Image>
+                    Grid.Row="7" Grid.Column="3">
+                <Image Name="Img4" Grid.Row="7" Grid.Column="3"></Image>
             </Button>
 
-            <Image Name="Img5" Grid.Row="6" Grid.Column="4"></Image>
-            <Image Name="Img6" Grid.Row="6" Grid.Column="5"></Image>
-            <Image Name="Img7" Grid.Row="6" Grid.Column="6"></Image>
-            <Image Name="Img8" Grid.Row="6" Grid.Column="7"></Image>
+            <Image Name="Img5" Grid.Row="7" Grid.Column="4"></Image>
+            <Image Name="Img6" Grid.Row="7" Grid.Column="5"></Image>
+            <Image Name="Img7" Grid.Row="7" Grid.Column="6"></Image>
+            <Image Name="Img8" Grid.Row="7" Grid.Column="7"></Image>
         </Grid>
         <Grid  Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
