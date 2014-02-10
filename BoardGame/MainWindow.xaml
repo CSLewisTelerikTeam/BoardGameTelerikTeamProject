@@ -33,7 +33,7 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-            </Grid.ColumnDefinitions>
+            </Grid.ColumnDefinitions>                        
 
             <Button Background="Transparent" Name="WarchiefUnit" Click="WarchiefUnit_Click"
                      MouseEnter="WarchiefUnit_MouseEnter" MouseLeave="WarchiefUnit_MouseLeave"

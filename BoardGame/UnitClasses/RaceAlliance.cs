@@ -14,8 +14,13 @@ namespace BoardGame.UnitClasses
         Squire, Mage, Sergeant, Captain, WarGolem, Priest, King
     }
 
-    abstract class RaceAlliance : Unit
+    abstract class RaceAlliance : Unit, IMoveable
     {
         protected AllianceTypeUnits UnitType { get; set; }
+
+        public virtual bool IsMoveable(Position destination)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

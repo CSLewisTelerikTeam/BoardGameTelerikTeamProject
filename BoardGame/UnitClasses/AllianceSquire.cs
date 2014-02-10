@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BoardGame.UnitClasses
 {
-    class AllianceSquire : RaceAlliance
+    class AllianceSquire : RaceAlliance, IMoveable
     {
         //Attack & Health start values
         private const int InitialAttackLevel = 20;
@@ -18,6 +18,28 @@ namespace BoardGame.UnitClasses
             this.UnitType = AllianceTypeUnits.Squire;
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+        }
+
+        public bool IsMoveable(Position destination)
+        {
+            //Check if the destination cell is not busy of Alliance unit
+            foreach (var unit in InitializedTeams.allianceTeam)
+            {
+                if (destination.col == unit.ColPosition && destination.row == unit.RowPosition)
+                {
+                    return false;
+                }
+            }
+
+            int deltaRow = destination.row - this.RowPosition;
+            int deltaCol = destination.col - this.ColPosition;
+
+            //invalid move
+            if (Math.Abs(deltaCol) > 1 || Math.Abs(deltaRow) > 1)
+            {
+                return false;
+            }
+            return true;
         }
     }
 }

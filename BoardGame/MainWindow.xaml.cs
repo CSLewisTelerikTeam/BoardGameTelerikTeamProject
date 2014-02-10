@@ -96,7 +96,7 @@ namespace OOPGame_WoWChess
         {
             MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/captainVoice.mp3"));
-            mediaPlayer.Play();
+            mediaPlayer.Play();            
         }
 
         private void KingUnit_Click(object sender, RoutedEventArgs e)
@@ -110,7 +110,7 @@ namespace OOPGame_WoWChess
         {
             MediaPlayer mediaPlayer = new MediaPlayer();
             mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/squireVoice.mp3"));
-            mediaPlayer.Play();
+            mediaPlayer.Play();            
         }
 
         private void WarchiefUnit_MouseEnter(object sender, MouseEventArgs e)
@@ -123,6 +123,7 @@ namespace OOPGame_WoWChess
         private void WarchiefUnit_MouseLeave(object sender, MouseEventArgs e)
         {
             this.BigCardImage.Source = null;           
-        }          
+        }
+                  
     }
 }

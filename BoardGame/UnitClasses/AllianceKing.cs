@@ -20,12 +20,12 @@ namespace BoardGame.UnitClasses
             this.HealthLevel = InitialHealthLevel;
         }
 
-        public bool Move(Position destination)
+        public override bool IsMoveable(Position destination)
         {
             //Check if the destination cell is not busy of Alliance unit
             foreach (var unit in InitializedTeams.allianceTeam)
             {
-                if (destination.col == unit.Value.ColPosition && destination.row == unit.Value.RowPosition)
+                if (destination.col == unit.ColPosition && destination.row == unit.RowPosition)
                 {
                     return false;
                 }
@@ -43,7 +43,7 @@ namespace BoardGame.UnitClasses
                     {
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
-                            if (unit.Value.ColPosition == currentCol && unit.Value.RowPosition == this.RowPosition)
+                            if (unit.ColPosition == currentCol && unit.RowPosition == this.RowPosition)
                             {
                                 return false;
                             }
@@ -51,12 +51,14 @@ namespace BoardGame.UnitClasses
 
                         foreach (var unit in InitializedTeams.hordeTeam)
                         {
-                            if (unit.Value.ColPosition == currentCol && unit.Value.RowPosition == this.RowPosition)
+                            if (unit.ColPosition == currentCol && unit.RowPosition == this.RowPosition)
                             {
                                 return false;
                             }
                         }
                     }
+
+                    return true;
                 }
 
                 if (deltaCol < 0)
@@ -65,7 +67,7 @@ namespace BoardGame.UnitClasses
                     {
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
-                            if (unit.Value.ColPosition == currentCol && unit.Value.RowPosition == this.RowPosition)
+                            if (unit.ColPosition == currentCol && unit.RowPosition == this.RowPosition)
                             {
                                 return false;
                             }
@@ -73,12 +75,14 @@ namespace BoardGame.UnitClasses
 
                         foreach (var unit in InitializedTeams.hordeTeam)
                         {
-                            if (unit.Value.ColPosition == currentCol && unit.Value.RowPosition == this.RowPosition)
+                            if (unit.ColPosition == currentCol && unit.RowPosition == this.RowPosition)
                             {
                                 return false;
                             }
                         }
                     }
+
+                    return true;
                 }               
             }
 
@@ -91,7 +95,7 @@ namespace BoardGame.UnitClasses
                     {
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
-                            if (unit.Value.RowPosition == currentRow && unit.Value.ColPosition == this.ColPosition)
+                            if (unit.RowPosition == currentRow && unit.ColPosition == this.ColPosition)
                             {
                                 return false;
                             }
@@ -99,12 +103,14 @@ namespace BoardGame.UnitClasses
 
                         foreach (var unit in InitializedTeams.hordeTeam)
                         {
-                            if (unit.Value.RowPosition == currentRow && unit.Value.ColPosition == this.ColPosition)
+                            if (unit.RowPosition == currentRow && unit.ColPosition == this.ColPosition)
                             {
                                 return false;
                             }
                         }
                     }
+
+                    return true;
                 }
 
                 if (deltaCol < 0)
@@ -113,7 +119,7 @@ namespace BoardGame.UnitClasses
                     {
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
-                            if (unit.Value.RowPosition == currentRow && unit.Value.ColPosition == this.ColPosition)
+                            if (unit.RowPosition == currentRow && unit.ColPosition == this.ColPosition)
                             {
                                 return false;
                             }
@@ -121,24 +127,114 @@ namespace BoardGame.UnitClasses
 
                         foreach (var unit in InitializedTeams.hordeTeam)
                         {
-                            if (unit.Value.RowPosition == currentRow && unit.Value.ColPosition == this.ColPosition)
+                            if (unit.RowPosition == currentRow && unit.ColPosition == this.ColPosition)
                             {
                                 return false;
                             }
                         }
                     }
+
+                    return true;
                 }
 
             }
             // Check diagonal line if it's clear to move
-            else if (deltaRow == deltaCol)
+            else if ( Math.Abs(deltaRow) == Math.Abs(deltaCol))
             {
-                //TODO
-                throw new NotImplementedException();
+                int currentRow = this.RowPosition;
+                int currentCol = this.ColPosition;
+
+                for (int i = 0; i < Math.Abs(deltaRow); i++)
+                {
+                    if (deltaRow <0  && deltaCol <0)
+                    {
+                        foreach (var unit in InitializedTeams.allianceTeam)
+                        {
+                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
+                            {
+                                return false;
+                            }
+                        }
+
+                        foreach (var unit in InitializedTeams.hordeTeam)
+                        {
+                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
+                            {
+                                return false;
+                            }
+                        }
+
+                        currentCol--;
+                        currentRow--;
+                    }
+                    else if (deltaRow < 0 && deltaCol > 0)
+                    {
+                        foreach (var unit in InitializedTeams.allianceTeam)
+                        {
+                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
+                            {
+                                return false;
+                            }
+                        }
+
+                        foreach (var unit in InitializedTeams.hordeTeam)
+                        {
+                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
+                            {
+                                return false;
+                            }
+                        }
+
+                        currentCol++;
+                        currentRow--;
+                    }
+                    else if (deltaRow > 0 && deltaCol > 0)
+                    {
+                        foreach (var unit in InitializedTeams.allianceTeam)
+                        {
+                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
+                            {
+                                return false;
+                            }
+                        }
+
+                        foreach (var unit in InitializedTeams.hordeTeam)
+                        {
+                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
+                            {
+                                return false;
+                            }
+                        }
+
+                        currentCol++;
+                        currentRow++;
+                    }
+                    else if (deltaRow > 0 && deltaCol < 0)
+                    {
+                        foreach (var unit in InitializedTeams.allianceTeam)
+                        {
+                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
+                            {
+                                return false;
+                            }
+                        }
+
+                        foreach (var unit in InitializedTeams.hordeTeam)
+                        {
+                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
+                            {
+                                return false;
+                            }
+                        }
+
+                        currentCol--;
+                        currentRow++;
+                    }                   
+                    
+                }
+
+                return true;
             }
-
-
-
 
             return false;
         }

@@ -11,7 +11,7 @@ namespace BoardGame.UnitClasses
     interface IMoveable
     {
         //Return true if trip to the destination position is possible
-        bool Move(Position destination);
+        bool IsMoveable(Position destination);
     }
 
     interface IAttacking

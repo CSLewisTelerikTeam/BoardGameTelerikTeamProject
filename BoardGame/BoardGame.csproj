@@ -75,7 +75,6 @@
     <Compile Include="UnitClasses\AllianceKing.cs" />
     <Compile Include="UnitClasses\AllianceMage.cs" />
     <Compile Include="UnitClasses\AlliancePriest.cs" />
-    <Compile Include="UnitClasses\AllianceSergeant.cs" />
     <Compile Include="UnitClasses\AllianceSquire.cs" />
     <Compile Include="UnitClasses\AllianceWarGolem.cs" />
     <Compile Include="UnitClasses\HordeCommander.cs" />
@@ -84,7 +83,6 @@
     <Compile Include="UnitClasses\HordeShaman.cs" />
     <Compile Include="UnitClasses\HordeWarchief.cs" />
     <Compile Include="UnitClasses\HordeWarlock.cs" />
-    <Compile Include="UnitClasses\HordeWarlord.cs" />
     <Compile Include="UnitClasses\RaceAlliance.cs" />
     <Compile Include="UnitClasses\RaceHorde.cs" />
     <Compile Include="UnitClasses\Unit.cs" />
