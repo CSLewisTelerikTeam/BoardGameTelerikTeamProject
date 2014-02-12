@@ -20,7 +20,7 @@ namespace BoardGame.UnitClasses
             this.HealthLevel = InitialHealthLevel;
         }
 
-        public bool IsMoveable(Position destination)
+        public override bool IsMoveable(Position destination)
         {
             //Check if the destination cell is not busy of Alliance unit
             foreach (var unit in InitializedTeams.allianceTeam)

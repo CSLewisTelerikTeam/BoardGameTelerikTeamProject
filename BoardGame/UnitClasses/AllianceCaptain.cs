@@ -3,15 +3,45 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using OOPGame_WoWChess;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
+using System.Windows.Input;
 
 namespace BoardGame.UnitClasses
 {
     class AllianceCaptain : RaceAlliance, IMoveable
     {        
         //Attack & Health start values
-        private const double InitialAttackLevel = 35;
-        private const double InitialHealthLevel = 70;
+        private const int InitialAttackLevel = 35;
+        private const int InitialHealthLevel = 70;
+        
+        //Unit's images field
+        private Image captainImageSmall;
+        private Image captainImageBig;
+
+        //Unit's images property
+        public Image CaptainImageSmall
+        {
+            get 
+            {
+                return this.captainImageSmall;
+            }
+            set
+            {
+                this.captainImageSmall = value;
+            }
+        }
+        public Image CaptainImageBig
+        {
+            get
+            {
+                return this.captainImageBig;
+            }
+            set 
+            {
+                this.captainImageBig = value;
+            }
+        }
 
         //Unit constructor
         public AllianceCaptain()
@@ -19,117 +49,36 @@ namespace BoardGame.UnitClasses
             this.UnitType = AllianceTypeUnits.Captain;
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+            this.CaptainImageSmall = new Image();
+            this.CaptainImageBig = new Image();
+
+            var path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\captain_small.png");
+            this.CaptainImageSmall.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
+            path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\captain_big.png");
+            this.CaptainImageBig.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
         }
 
-        public bool IsMoveable(Position destination)
+        public bool Move(Position destination)
         {
             //Check if the destination cell is not busy of Alliance unit
             foreach (var unit in InitializedTeams.allianceTeam)
             {
-                if (destination.col == unit.ColPosition && destination.row == unit.RowPosition)
-                {
-                    return false;
-                }
+                //Commented with the reason below
+
+                //Error	1	'BoardGame.UnitClasses.RaceAlliance' does not contain a definition for 'Value' and no extension method 'Value' accepting a first argument of type 'BoardGame.UnitClasses.RaceAlliance' could be found (are you missing a using directive or an assembly reference?)	C:\Users\vesel_000\Documents\GitHub\BoardGameTelerikTeamProject\BoardGame\UnitClasses\AllianceCaptain.cs	57	45	BoardGame
+
+                //if (destination.col == unit.Value.ColPosition && destination.row == unit.Value.RowPosition)
+                //{
+                //    return false;
+                //}
             }
 
-            int deltaRow = destination.row - this.RowPosition;
-            int deltaCol = destination.col - this.ColPosition;
+            int deltaRow = (int)Math.Abs(destination.row - this.RowPosition);
+            int deltaCol = (int)Math.Abs(destination.col - this.ColPosition);
 
-            // Check diagonal line if it's clear to move
-            if ( Math.Abs(deltaRow) == Math.Abs(deltaCol))
+            //Check if the destination cell is corresponding to the unit move rules
+            if ( (deltaRow == 2 && deltaCol == 1) || (deltaRow == 1 && deltaCol == 2))
             {
-                int currentRow = this.RowPosition;
-                int currentCol = this.ColPosition;
-
-                for (int i = 0; i < Math.Abs(deltaRow); i++)
-                {
-                    if (deltaRow <0  && deltaCol <0)
-                    {
-                        foreach (var unit in InitializedTeams.allianceTeam)
-                        {
-                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
-                            {
-                                return false;
-                            }
-                        }
-
-                        foreach (var unit in InitializedTeams.hordeTeam)
-                        {
-                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
-                            {
-                                return false;
-                            }
-                        }
-
-                        currentCol--;
-                        currentRow--;
-                    }
-                    else if (deltaRow < 0 && deltaCol > 0)
-                    {
-                        foreach (var unit in InitializedTeams.allianceTeam)
-                        {
-                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
-                            {
-                                return false;
-                            }
-                        }
-
-                        foreach (var unit in InitializedTeams.hordeTeam)
-                        {
-                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
-                            {
-                                return false;
-                            }
-                        }
-
-                        currentCol++;
-                        currentRow--;
-                    }
-                    else if (deltaRow > 0 && deltaCol > 0)
-                    {
-                        foreach (var unit in InitializedTeams.allianceTeam)
-                        {
-                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
-                            {
-                                return false;
-                            }
-                        }
-
-                        foreach (var unit in InitializedTeams.hordeTeam)
-                        {
-                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
-                            {
-                                return false;
-                            }
-                        }
-
-                        currentCol++;
-                        currentRow++;
-                    }
-                    else if (deltaRow > 0 && deltaCol < 0)
-                    {
-                        foreach (var unit in InitializedTeams.allianceTeam)
-                        {
-                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
-                            {
-                                return false;
-                            }
-                        }
-
-                        foreach (var unit in InitializedTeams.hordeTeam)
-                        {
-                            if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
-                            {
-                                return false;
-                            }
-                        }
-
-                        currentCol--;
-                        currentRow++;
-                    }                   
-                    
-                }
-
                 return true;
             }
 

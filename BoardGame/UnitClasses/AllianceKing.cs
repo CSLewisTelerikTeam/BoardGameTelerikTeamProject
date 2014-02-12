@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using OOPGame_WoWChess;
+using System.Windows.Controls;
+using System.Windows.Media.Imaging;
 
 namespace BoardGame.UnitClasses
 {
@@ -12,12 +14,47 @@ namespace BoardGame.UnitClasses
         private const double InitialAttackLevel = 40;
         private const double InitialHealthLevel = 100;
 
+        //Unit's images field
+        private Image kingImageSmall;
+        private Image kingImageBig;
+
+        //Unit's images property
+        public Image KingImageSmall
+        {
+            get
+            {
+                return this.kingImageSmall;
+            }
+            set
+            {
+                this.kingImageSmall = value;
+            }
+        }
+        public Image KingImageBig
+        {
+            get
+            {
+                return this.kingImageBig;
+            }
+            set
+            {
+                this.kingImageBig = value;
+            }
+        }
+
         //Unit constructor
         public AllianceKing()
         {
             this.UnitType = AllianceTypeUnits.King;
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+            this.KingImageSmall = new Image();
+            this.KingImageBig = new Image();
+
+            var path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\king_small.png");
+            this.KingImageSmall.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
+            path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\king_big.png");
+            this.KingImageBig.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
         }
 
         public override bool IsMoveable(Position destination)

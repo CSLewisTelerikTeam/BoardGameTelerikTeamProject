@@ -122,6 +122,11 @@
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
     <AppDesigner Include="Properties\" />
+    <None Include="Resources\Alliance\frames_ally.rar" />
+    <None Include="Resources\Other_graphics\unused_at_the_moment\beta_wallpaper_1.psd" />
+    <None Include="Resources\Other_graphics\unused_at_the_moment\beta_wallpaper_2.psd" />
+    <None Include="Resources\Other_graphics\unused_at_the_moment\button.psd" />
+    <None Include="Resources\Other_graphics\unused_at_the_moment\logo+fonts.psd" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -142,6 +147,62 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Alliance\Frames\captain_big.png" />
+    <Resource Include="Resources\Alliance\Frames\captain_small.png" />
+    <Resource Include="Resources\Alliance\Frames\king_big.png" />
+    <Resource Include="Resources\Alliance\Frames\king_small.png" />
+    <Resource Include="Resources\Alliance\Frames\mage_big.png" />
+    <Resource Include="Resources\Alliance\Frames\mage_small.png" />
+    <Resource Include="Resources\Alliance\Frames\priest_big.png" />
+    <Resource Include="Resources\Alliance\Frames\priest_small.png" />
+    <Resource Include="Resources\Alliance\Frames\squire_big.png" />
+    <Resource Include="Resources\Alliance\Frames\squire_small.png" />
+    <Resource Include="Resources\Alliance\Frames\war_golem_big.png" />
+    <Resource Include="Resources\Alliance\Frames\war_golem_small.png" />
+    <Resource Include="Resources\Horde\frames\commander_big.png" />
+    <Resource Include="Resources\Horde\frames\commander_small.png" />
+    <Resource Include="Resources\Horde\frames\demolisher_big.png" />
+    <Resource Include="Resources\Horde\frames\demolisher_small.png" />
+    <Resource Include="Resources\Horde\frames\grunt_big.png" />
+    <Resource Include="Resources\Horde\frames\grunt_small.png" />
+    <Resource Include="Resources\Horde\frames\shaman_big.png" />
+    <Resource Include="Resources\Horde\frames\shaman_small.png" />
+    <Resource Include="Resources\Horde\frames\warchief_big.png" />
+    <Resource Include="Resources\Horde\frames\warchief_small.png" />
+    <Resource Include="Resources\Horde\frames\warlock_big.png" />
+    <Resource Include="Resources\Horde\frames\warlock_small.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\Alliance\sounds\" />
+    <Folder Include="Resources\Horde\sounds\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Background_music\background_music.mp3" />
+    <Content Include="Resources\Background_music\start_menu_music.mp3" />
+    <Resource Include="Resources\Other_graphics\alliance_template_square.png" />
+    <Resource Include="Resources\Other_graphics\background_image.png" />
+    <Resource Include="Resources\Other_graphics\button_exit.png" />
+    <Resource Include="Resources\Other_graphics\button_exit_hover.png" />
+    <Resource Include="Resources\Other_graphics\button_instr.png" />
+    <Resource Include="Resources\Other_graphics\button_instr_hover.png" />
+    <Resource Include="Resources\Other_graphics\button_newgame.png" />
+    <Resource Include="Resources\Other_graphics\button_newgame_hover.png" />
+    <Resource Include="Resources\Other_graphics\empty_cell.png" />
+    <Resource Include="Resources\Other_graphics\horde_template_square.png" />
+    <Resource Include="Resources\Other_graphics\random_bonus.png" />
+    <Resource Include="Resources\Other_graphics\start_screen.png" />
+    <Resource Include="Resources\Other_graphics\start_screen_examplebuttons.png" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\background-game.png" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\beta_wallpaper.png" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\beta_wallpaper_2.png" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\beta_wallpaper_3.png" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\coverw1.jpg" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\game_logo.png" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\logo.png" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\logoexpand02.png" />
+    <Resource Include="Resources\Other_graphics\unused_at_the_moment\square_background.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

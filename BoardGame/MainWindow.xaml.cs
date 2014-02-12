@@ -15,6 +15,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BoardGame.UnitClasses;
 using System.Threading;
+using System.IO;
+using System.Reflection;
 
 namespace OOPGame_WoWChess
 {
@@ -27,91 +29,26 @@ namespace OOPGame_WoWChess
         {
             InitializeComponent();
 
-            ImageBrush myBrush = new ImageBrush();
-            myBrush.ImageSource = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/bg1.png", UriKind.Absolute));
-            this.Background = myBrush;
+            //this.Playfield.MaxWidth = this.Playfield.Height;
 
-            Image alianceSquare = new Image();
-            alianceSquare.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/squareAliance.png", UriKind.Absolute));
-            Image hordeSquare = new Image();
-            hordeSquare.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/squareHorde.png", UriKind.Absolute));
-
-            //Image warchief = new Image();
-            //warchief.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/warchief.png", UriKind.Absolute));
-            //Image captain = new Image();
-            //captain.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/captain.png", UriKind.Absolute));
-            //Image commander = new Image();
-            //commander.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/commander.png", UriKind.Absolute));
-            //Image grunt = new Image();
-            //grunt.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/grunt.png", UriKind.Absolute));
-            //Image king = new Image();
-            //king.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/king.png", UriKind.Absolute));
-            //Image squire = new Image();
-            //squire.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/squire.png", UriKind.Absolute));
-
-            //Img1.Source = warchief.Source;
-            //Img2.Source = captain.Source;
-            //Img3.Source = king.Source;
-            //Img4.Source = squire.Source;
-            //Img5.Source = commander.Source;
-            //Img6.Source = warchief.Source;
-            ////Img7.Source = grunt.Source;
-            ////Img8.Source = king.Source;
-            //Img11.Source = warchief.Source;
-            //Img12.Source = captain.Source;
-            //Img13.Source = king.Source;
-            //Img14.Source = warchief.Source;
-            //Img15.Source = commander.Source;
-            //Img16.Source = warchief.Source;
-            ////Img17.Source = grunt.Source;
-            ////Img18.Source = king.Source;
-
-            Img1.Source = alianceSquare.Source;
-            Img2.Source = alianceSquare.Source;
-            Img3.Source = alianceSquare.Source;
-            Img4.Source = alianceSquare.Source;
-            Img5.Source = alianceSquare.Source;
-            Img6.Source = alianceSquare.Source;
-            Img7.Source = alianceSquare.Source;
-            Img8.Source = alianceSquare.Source;
-            Img11.Source = hordeSquare.Source;
-            Img12.Source = hordeSquare.Source;
-            Img13.Source = hordeSquare.Source;
-            Img14.Source = hordeSquare.Source;
-            Img15.Source = hordeSquare.Source;
-            Img16.Source = hordeSquare.Source;
-            Img17.Source = hordeSquare.Source;
-            Img18.Source = hordeSquare.Source;   
-        }  
-        
-        private void WarchiefUnit_Click(object sender, RoutedEventArgs e)
-        {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/warchiefVoice.mp3"));
-            mediaPlayer.Play();           
+            LoadBackgroundImage();
+            LoadBackgroundMusic();
+                        
+            InitializeUnits();
             
+            var unit00 = (Border)this.Playfield.FindName("Unit00");
+            unit00.Child = (InitializedTeams.allianceTeam[15] as AllianceKing).KingImageSmall;
+
+            var unit01 = (Border)this.Playfield.FindName("Unit01");
+            unit01.Child = (InitializedTeams.allianceTeam[10] as AllianceCaptain).CaptainImageSmall;
+
         }
 
-        private void CaptainUnit_Click(object sender, RoutedEventArgs e)
-        {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/captainVoice.mp3"));
-            mediaPlayer.Play();            
-        }
-
-        private void KingUnit_Click(object sender, RoutedEventArgs e)
-        {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/kingVoice.mp3"));
-            mediaPlayer.Play();
-        }
-
-        private void SquireUnit_Click(object sender, RoutedEventArgs e)
-        {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            mediaPlayer.Open(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/squireVoice.mp3"));
-            mediaPlayer.Play();            
-        }
+        private bool isMouseCapture;
+        private double mouseXOffset;
+        private double mouseYOffset;
+        private TranslateTransform translateTransform;
+        private MediaPlayer backgroundMusic = new MediaPlayer();
 
         private void WarchiefUnit_MouseEnter(object sender, MouseEventArgs e)
         {
@@ -124,6 +61,138 @@ namespace OOPGame_WoWChess
         {
             this.BigCardImage.Source = null;           
         }
-                  
+
+        private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Image image = (Image)sender;
+            Border border = (Border)image.Parent;
+
+            image.CaptureMouse();
+            isMouseCapture = true;
+            mouseXOffset = e.GetPosition(border).X;
+            mouseYOffset = e.GetPosition(border).Y;
+
+
+            var chessPiece = (Image)sender;
+            var chessSquare = (Border)chessPiece.Parent;
+
+            var row = (byte)(Grid.GetRow(chessSquare));
+            var column = (byte)(Grid.GetColumn(chessSquare) - 1);
+
+            //if (engine.HumanPlayer == ChessPieceColor.White)
+            //{
+            //    SelectionChanged(row, column, false);
+            //}
+            //else
+            //{
+            //    SelectionChanged((byte)(7 - row), (byte)(7 - column), false);
+            //}
+        }
+
+        private void Image_MouseMove(object sender, MouseEventArgs e)
+        {
+            Image image = (Image)sender;
+            Border border = (Border)image.Parent;
+
+
+            //if (!currentSource.Selected)
+            //{
+            //    image.ReleaseMouseCapture();
+            //    isMouseCapture = false;
+
+            //    translateTransform = new TranslateTransform();
+
+            //    translateTransform.X = 0;
+            //    translateTransform.Y = 0;
+
+            //    mouseXOffset = 0;
+            //    mouseYOffset = 0;
+            //}
+
+
+
+            if (isMouseCapture)
+            {
+                translateTransform = new TranslateTransform();
+
+                translateTransform.X = e.GetPosition(border).X - mouseXOffset;
+                translateTransform.Y = e.GetPosition(border).Y - mouseYOffset;
+
+                image.RenderTransform = translateTransform;
+
+                //CalculateSquareSelected((int)translateTransform.X, (int)translateTransform.Y, false);
+            }
+        }
+
+        private void Image_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            if (translateTransform == null)
+            {
+                return;
+            }
+
+            //An example of an UIElement like the cards (Border -> Image)
+            Image image = (Image)sender;
+            Border border = (Border)image.Parent;
+            border.Child = image;
+            //===========================================================
+            
+
+            image.ReleaseMouseCapture();
+            isMouseCapture = false;
+
+            if (translateTransform.X > 10 || translateTransform.Y > 10 || translateTransform.X < -10 || translateTransform.Y < -10)
+            {
+                CalculateSquareSelected((int)translateTransform.X, (int)translateTransform.Y, true, border);
+            }
+
+            translateTransform = new TranslateTransform();
+
+            translateTransform.X = 0;
+            translateTransform.Y = 0;
+
+            mouseXOffset = 0;
+            mouseYOffset = 0;
+
+            image.RenderTransform = translateTransform;
+        }
+
+        private void CalculateSquareSelected(int inputX, int inputY, bool something, UIElement element)
+        {
+            int x = Math.Abs(inputX / 100);
+            int y = Math.Abs(inputY / 100);
+
+            Grid.SetRow(element, x);
+            Grid.SetColumn(element, y);
+        }
+
+        private void InitializeUnits()
+        {
+            var king = InitializedTeams.allianceTeam[15] as AllianceKing;
+            king.KingImageSmall.MouseLeftButtonDown += new MouseButtonEventHandler(Image_MouseLeftButtonDown);
+            king.KingImageSmall.MouseMove += new MouseEventHandler(Image_MouseMove);
+            king.KingImageSmall.MouseLeftButtonUp += new MouseButtonEventHandler(Image_MouseLeftButtonUp);
+
+            var captain = InitializedTeams.allianceTeam[10] as AllianceCaptain;
+            captain.CaptainImageSmall.MouseLeftButtonDown += new MouseButtonEventHandler(Image_MouseLeftButtonDown);
+            captain.CaptainImageSmall.MouseMove += new MouseEventHandler(Image_MouseMove);
+            captain.CaptainImageSmall.MouseLeftButtonUp += new MouseButtonEventHandler(Image_MouseLeftButtonUp);
+
+        }
+        private void LoadBackgroundImage()
+        {
+            ImageBrush myBrush = new ImageBrush();
+            var path = System.IO.Path.GetFullPath(@"..\..\Resources\Other_graphics\background_image.png");
+            myBrush.ImageSource = new BitmapImage(new Uri(path, UriKind.Absolute));
+            this.Background = myBrush;
+        }
+
+        private void LoadBackgroundMusic()
+        {
+            var path = System.IO.Path.GetFullPath(@"..\..\Resources\Background_music\background_music.mp3");
+            backgroundMusic.Open(new Uri(path));
+            backgroundMusic.Play();
+        }
+
     }
 }

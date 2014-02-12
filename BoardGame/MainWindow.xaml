@@ -1,7 +1,6 @@
 ﻿<Window x:Class="OOPGame_WoWChess.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" 
         WindowStyle="None" WindowState="Maximized">
     <Grid>
         <Grid.RowDefinitions>
@@ -13,7 +12,9 @@
         </Grid.ColumnDefinitions>
 
 
-        <Grid Grid.Row="0" Grid.Column="0">
+        <Grid Grid.Row="0" Grid.Column="0"
+              Name="Playfield" ShowGridLines="True"
+              Width="750" Height="750">
             <Grid.RowDefinitions>
                 <RowDefinition/>
                 <RowDefinition/>
@@ -33,9 +34,9 @@
                 <ColumnDefinition/>
                 <ColumnDefinition/>
                 <ColumnDefinition/>
-            </Grid.ColumnDefinitions>                        
+            </Grid.ColumnDefinitions>
 
-            <Button Background="Transparent" Name="WarchiefUnit" Click="WarchiefUnit_Click"
+            <!--<Button Background="Transparent" Name="WarchiefUnit" Click="WarchiefUnit_Click"
                      MouseEnter="WarchiefUnit_MouseEnter" MouseLeave="WarchiefUnit_MouseLeave"
                      Grid.Row="0" Grid.Column="0">
                 <Canvas Width="93" Height="93">
@@ -47,19 +48,624 @@
                     <TextBlock FontFamily="Cooper Black" Foreground="White" Canvas.Left="75" Canvas.Top="70"
                                FontWeight="Bold" FontSize="18">10</TextBlock>
                 </Canvas>
-            </Button>
+            </Button>-->
+            
+            
+            
+            
+            <!--Uncomment-->
+            
+            <Border Grid.Row="0" Grid.Column="0" 
+                    BorderThickness="1"
+                    Name="Unit00">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+            
+            <Border Grid.Row="0" Grid.Column="1" 
+                    BorderThickness="1"
+                    Name="Unit01">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+            
+            
+            
+            
+            
 
-            <Button Background="Transparent" Name="CaptainUnit" Click="CaptainUnit_Click"
+            <!--<Button Background="Transparent" Name="CaptainUnit" Click="CaptainUnit_Click"
                      Grid.Row="0" Grid.Column="1">
                 <Image Name="Img12" Grid.Row="0" Grid.Column="1"></Image>
-            </Button>
+            </Button>-->
 
-            <Button Background="Transparent" Name="KingUnit"
+            <!--<Button Background="Transparent" Name="KingUnit"
                     Grid.Row="0" Grid.Column="2" Click="KingUnit_Click">
                 <Image Name="Img13" Grid.Row="0" Grid.Column="2"></Image>
-            </Button>       
+            </Button>-->
 
-            <Image Name="Img14" Grid.Row="0" Grid.Column="3"></Image>
+            <!--<Border Grid.Row="0" Grid.Column="2" 
+                    BorderThickness="1"
+                    Name="Unit02">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="3" 
+                    BorderThickness="1"
+                    Name="Unit03">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="4" 
+                    BorderThickness="1"
+                    Name="Unit04">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="5" 
+                    BorderThickness="1"
+                    Name="Unit05">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="6" 
+                    BorderThickness="1"
+                    Name="Unit06">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="0" Grid.Column="7" 
+                    BorderThickness="1"
+                    Name="Unit07">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="0" 
+                    BorderThickness="1"
+                    Name="Unit10">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="1" 
+                    BorderThickness="1"
+                    Name="Unit11">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="2" 
+                    BorderThickness="1"
+                    Name="Unit12">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="3" 
+                    BorderThickness="1"
+                    Name="Unit13">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="4" 
+                    BorderThickness="1"
+                    Name="Unit14">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="5" 
+                    BorderThickness="1"
+                    Name="Unit15">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="6" 
+                    BorderThickness="1"
+                    Name="Unit16">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="1" Grid.Column="7" 
+                    BorderThickness="1"
+                    Name="Unit17">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="0" 
+                    BorderThickness="1"
+                    Name="Unit20">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="1" 
+                    BorderThickness="1"
+                    Name="Unit21">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="2" 
+                    BorderThickness="1"
+                    Name="Unit22">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="3" 
+                    BorderThickness="1"
+                    Name="Unit23">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="4" 
+                    BorderThickness="1"
+                    Name="Unit24">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="5" 
+                    BorderThickness="1"
+                    Name="Unit25">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="6" 
+                    BorderThickness="1"
+                    Name="Unit26">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="2" Grid.Column="7" 
+                    BorderThickness="1"
+                    Name="Unit27">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="0" 
+                    BorderThickness="1"
+                    Name="Unit30">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="1" 
+                    BorderThickness="1"
+                    Name="Unit31">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="2" 
+                    BorderThickness="1"
+                    Name="Unit32">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="3" 
+                    BorderThickness="1"
+                    Name="Unit33">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="4" 
+                    BorderThickness="1"
+                    Name="Unit34">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="5" 
+                    BorderThickness="1"
+                    Name="Unit35">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="6" 
+                    BorderThickness="1"
+                    Name="Unit36">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="3" Grid.Column="7" 
+                    BorderThickness="1"
+                    Name="Unit37">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="0" 
+                    BorderThickness="1"
+                    Name="Unit40">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="1" 
+                    BorderThickness="1"
+                    Name="Unit41">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="2" 
+                    BorderThickness="1"
+                    Name="Unit42">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="3" 
+                    BorderThickness="1"
+                    Name="Unit43">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="4" 
+                    BorderThickness="1"
+                    Name="Unit44">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="5" 
+                    BorderThickness="1"
+                    Name="Unit45">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="6" 
+                    BorderThickness="1"
+                    Name="Unit46">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="4" Grid.Column="7" 
+                    BorderThickness="1"
+                    Name="Unit47">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="0" 
+                    BorderThickness="1"
+                    Name="Unit50">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="1" 
+                    BorderThickness="1"
+                    Name="Unit51">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="2" 
+                    BorderThickness="1"
+                    Name="Unit52">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="3" 
+                    BorderThickness="1"
+                    Name="Unit53">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="4" 
+                    BorderThickness="1"
+                    Name="Unit54">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="5" 
+                    BorderThickness="1"
+                    Name="Unit55">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="6" 
+                    BorderThickness="1"
+                    Name="Unit56">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="5" Grid.Column="7" 
+                    BorderThickness="1"
+                    Name="Unit57">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="0" 
+                    BorderThickness="1"
+                    Name="Unit60">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="1" 
+                    BorderThickness="1"
+                    Name="Unit61">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="2" 
+                    BorderThickness="1"
+                    Name="Unit62">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="3" 
+                    BorderThickness="1"
+                    Name="Unit63">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="4" 
+                    BorderThickness="1"
+                    Name="Unit64">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="5" 
+                    BorderThickness="1"
+                    Name="Unit65">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="6" 
+                    BorderThickness="1"
+                    Name="Unit66">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="6" Grid.Column="7" 
+                    BorderThickness="1"
+                    Name="Unit67">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="7" Grid.Column="0" 
+                    BorderThickness="1"
+                    Name="Unit70">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="7" Grid.Column="1" 
+                    BorderThickness="1"
+                    Name="Unit71">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="7" Grid.Column="2" 
+                    BorderThickness="1"
+                    Name="Unit72">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="7" Grid.Column="3" 
+                    BorderThickness="1"
+                    Name="Unit73">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="7" Grid.Column="4" 
+                    BorderThickness="1"
+                    Name="Unit74">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="7" Grid.Column="5" 
+                    BorderThickness="1"
+                    Name="Unit75">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="7" Grid.Column="6" 
+                    BorderThickness="1"
+                    Name="Unit76">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>
+
+            <Border Grid.Row="7" Grid.Column="7" 
+                    BorderThickness="1"
+                    Name="Unit77">
+                <Image MouseLeftButtonDown="Image_MouseLeftButtonDown" 
+                       MouseMove="Image_MouseMove" 
+                       MouseLeftButtonUp="Image_MouseLeftButtonUp">
+                </Image>
+            </Border>-->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <!--<Image Name="Img14" Grid.Row="0" Grid.Column="3"></Image>
             <Image Name="Img15" Grid.Row="0" Grid.Column="4"></Image>
             <Image Name="Img16" Grid.Row="0" Grid.Column="5"></Image>
             <Image Name="Img17" Grid.Row="0" Grid.Column="6"></Image>
@@ -76,7 +682,7 @@
             <Image Name="Img5" Grid.Row="7" Grid.Column="4"></Image>
             <Image Name="Img6" Grid.Row="7" Grid.Column="5"></Image>
             <Image Name="Img7" Grid.Row="7" Grid.Column="6"></Image>
-            <Image Name="Img8" Grid.Row="7" Grid.Column="7"></Image>
+            <Image Name="Img8" Grid.Row="7" Grid.Column="7"></Image>-->
         </Grid>
         <Grid  Grid.Row="0" Grid.Column="1">
             <Grid.RowDefinitions>
