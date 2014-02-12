@@ -29,18 +29,11 @@ namespace OOPGame_WoWChess
         {
             InitializeComponent();
 
-            //this.Playfield.MaxWidth = this.Playfield.Height;
-
             LoadBackgroundImage();
             LoadBackgroundMusic();
-                        
             InitializeUnits();
-            
-            var unit00 = (Border)this.Playfield.FindName("Unit00");
-            unit00.Child = (InitializedTeams.allianceTeam[15] as AllianceKing).KingImageSmall;
 
-            var unit01 = (Border)this.Playfield.FindName("Unit01");
-            unit01.Child = (InitializedTeams.allianceTeam[10] as AllianceCaptain).CaptainImageSmall;
+            
 
         }
 
@@ -50,17 +43,37 @@ namespace OOPGame_WoWChess
         private TranslateTransform translateTransform;
         private MediaPlayer backgroundMusic = new MediaPlayer();
 
-        private void WarchiefUnit_MouseEnter(object sender, MouseEventArgs e)
+        //private void WarchiefUnit_MouseEnter(object sender, MouseEventArgs e)
+        //{
+        //    Image warchief = new Image();
+        //    warchief.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/warchief.png", UriKind.Absolute));
+        //    this.BigCardImage.Width = 330;
+        //    this.BigCardImage.Source = warchief.Source;
+        //}   
+        //private void WarchiefUnit_MouseLeave(object sender, MouseEventArgs e)
+        //{
+        //    this.BigCardImage.Source = null;           
+        //}
+
+        private void Image_MouseEnter(object sender, MouseEventArgs e)
         {
-            Image warchief = new Image();
-            warchief.Source = new BitmapImage(new Uri(@"http://vidimitrov.com/images/Warcraft_Units/warchief.png", UriKind.Absolute));
+            Image img = new Image();
+
+            string smallImgSource = (sender as Image).Source.ToString();
+
+            string bigImgSource = smallImgSource.Replace("small", "big");
+
+            img.Source = new BitmapImage(new Uri(bigImgSource, UriKind.Absolute));
+
             this.BigCardImage.Width = 330;
-            this.BigCardImage.Source = warchief.Source;
-        }   
-        private void WarchiefUnit_MouseLeave(object sender, MouseEventArgs e)
-        {
-            this.BigCardImage.Source = null;           
+            this.BigCardImage.Source = img.Source;
         }
+
+        private void Image_MouseLeave(object sender, MouseEventArgs e)
+        {
+            this.BigCardImage.Source = null;
+        }
+
 
         private void Image_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
@@ -131,11 +144,11 @@ namespace OOPGame_WoWChess
                 return;
             }
 
-            //An example of an UIElement like the cards (Border -> Image)
+
             Image image = (Image)sender;
             Border border = (Border)image.Parent;
-            border.Child = image;
-            //===========================================================
+            //border.Child = image;
+
             
 
             image.ReleaseMouseCapture();
@@ -169,14 +182,24 @@ namespace OOPGame_WoWChess
         private void InitializeUnits()
         {
             var king = InitializedTeams.allianceTeam[15] as AllianceKing;
-            king.KingImageSmall.MouseLeftButtonDown += new MouseButtonEventHandler(Image_MouseLeftButtonDown);
-            king.KingImageSmall.MouseMove += new MouseEventHandler(Image_MouseMove);
-            king.KingImageSmall.MouseLeftButtonUp += new MouseButtonEventHandler(Image_MouseLeftButtonUp);
+            king.SmallImage.MouseLeftButtonDown += new MouseButtonEventHandler(Image_MouseLeftButtonDown);
+            king.SmallImage.MouseMove += new MouseEventHandler(Image_MouseMove);
+            king.SmallImage.MouseLeftButtonUp += new MouseButtonEventHandler(Image_MouseLeftButtonUp);
+            king.SmallImage.MouseEnter += new MouseEventHandler(Image_MouseEnter);
+            king.SmallImage.MouseLeave += new MouseEventHandler(Image_MouseLeave);
+
+            var unit00 = (Border)this.Playfield.FindName("Unit00");
+            unit00.Child = (InitializedTeams.allianceTeam[15] as AllianceKing).SmallImage;
 
             var captain = InitializedTeams.allianceTeam[10] as AllianceCaptain;
-            captain.CaptainImageSmall.MouseLeftButtonDown += new MouseButtonEventHandler(Image_MouseLeftButtonDown);
-            captain.CaptainImageSmall.MouseMove += new MouseEventHandler(Image_MouseMove);
-            captain.CaptainImageSmall.MouseLeftButtonUp += new MouseButtonEventHandler(Image_MouseLeftButtonUp);
+            captain.SmallImage.MouseLeftButtonDown += new MouseButtonEventHandler(Image_MouseLeftButtonDown);
+            captain.SmallImage.MouseMove += new MouseEventHandler(Image_MouseMove);
+            captain.SmallImage.MouseLeftButtonUp += new MouseButtonEventHandler(Image_MouseLeftButtonUp);
+            captain.SmallImage.MouseEnter += new MouseEventHandler(Image_MouseEnter);
+            captain.SmallImage.MouseLeave += new MouseEventHandler(Image_MouseLeave);
+
+            var unit01 = (Border)this.Playfield.FindName("Unit01");
+            unit01.Child = (InitializedTeams.allianceTeam[10] as AllianceCaptain).SmallImage;
 
         }
         private void LoadBackgroundImage()
@@ -194,5 +217,6 @@ namespace OOPGame_WoWChess
             backgroundMusic.Play();
         }
 
+       
     }
 }

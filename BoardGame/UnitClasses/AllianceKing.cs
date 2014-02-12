@@ -15,30 +15,30 @@ namespace BoardGame.UnitClasses
         private const double InitialHealthLevel = 100;
 
         //Unit's images field
-        private Image kingImageSmall;
-        private Image kingImageBig;
+        private Image smallImage;
+        private Image bigImage;
 
         //Unit's images property
-        public Image KingImageSmall
+        public Image SmallImage
         {
             get
             {
-                return this.kingImageSmall;
+                return this.smallImage;
             }
             set
             {
-                this.kingImageSmall = value;
+                this.smallImage = value;
             }
         }
-        public Image KingImageBig
+        public Image BigImage
         {
             get
             {
-                return this.kingImageBig;
+                return this.bigImage;
             }
             set
             {
-                this.kingImageBig = value;
+                this.bigImage = value;
             }
         }
 
@@ -48,13 +48,13 @@ namespace BoardGame.UnitClasses
             this.UnitType = AllianceTypeUnits.King;
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
-            this.KingImageSmall = new Image();
-            this.KingImageBig = new Image();
+            this.SmallImage = new Image();
+            this.BigImage = new Image();
 
             var path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\king_small.png");
-            this.KingImageSmall.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
+            this.SmallImage.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
             path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\king_big.png");
-            this.KingImageBig.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
+            this.BigImage.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
         }
 
         public override bool IsMoveable(Position destination)

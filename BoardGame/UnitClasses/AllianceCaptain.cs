@@ -16,30 +16,30 @@ namespace BoardGame.UnitClasses
         private const int InitialHealthLevel = 70;
         
         //Unit's images field
-        private Image captainImageSmall;
-        private Image captainImageBig;
+        private Image smallImage;
+        private Image bigImage;
 
         //Unit's images property
-        public Image CaptainImageSmall
+        public Image SmallImage
         {
             get 
             {
-                return this.captainImageSmall;
+                return this.smallImage;
             }
             set
             {
-                this.captainImageSmall = value;
+                this.smallImage = value;
             }
         }
-        public Image CaptainImageBig
+        public Image BigImage
         {
             get
             {
-                return this.captainImageBig;
+                return this.bigImage;
             }
             set 
             {
-                this.captainImageBig = value;
+                this.bigImage = value;
             }
         }
 
@@ -49,13 +49,13 @@ namespace BoardGame.UnitClasses
             this.UnitType = AllianceTypeUnits.Captain;
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
-            this.CaptainImageSmall = new Image();
-            this.CaptainImageBig = new Image();
+            this.SmallImage = new Image();
+            this.BigImage = new Image();
 
             var path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\captain_small.png");
-            this.CaptainImageSmall.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
+            this.SmallImage.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
             path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\captain_big.png");
-            this.CaptainImageBig.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
+            this.BigImage.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
         }
 
         public bool Move(Position destination)
