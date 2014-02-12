@@ -25,18 +25,19 @@ namespace BoardGame.UnitClasses
     abstract class Unit
     {
         //Private Fields 
-        private int healthLevel;
-        private int attackLevel;        
+        private double healthLevel;
+        private double attackLevel;
+        private double counterAttackLevel;
         private Position unitPosition;
         
         //Properties over private fields, in case need of data validation
-        public int HealthLevel
+        public double HealthLevel
         {
             get {return this.healthLevel;}
             set {this.healthLevel = value; }
         }
-        
-        public int AttackLevel
+
+        public double AttackLevel
         {
             get { return this.attackLevel; }
             set { this.attackLevel = value; }
@@ -55,5 +56,6 @@ namespace BoardGame.UnitClasses
         }
 
         public bool IsSelected { get; set; }
+
     }
 }

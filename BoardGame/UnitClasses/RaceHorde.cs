@@ -17,5 +17,11 @@ namespace BoardGame.UnitClasses
     abstract class RaceHorde : Unit
     {        
         protected HordeTypeUnits UnitType { get; set; }
+
+        // InflictDamage takes two parameters: attacked unit (of race opposite to that of the attacker) and damage source (attack, counterattack, spells...) 
+        public void InflictDamage(RaceAlliance attackedUnit, double damageSource)
+        {
+            attackedUnit.HealthLevel -= damageSource;
+        }
     }
 }

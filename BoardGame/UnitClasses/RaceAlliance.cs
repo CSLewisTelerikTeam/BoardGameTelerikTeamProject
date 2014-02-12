@@ -22,5 +22,11 @@ namespace BoardGame.UnitClasses
         {
             throw new NotImplementedException();
         }
+
+        // // InflictDamage takes two parameters: attacked unit (of race opposite to that of the attacker) and damage source (attack, counterattack, spells...)
+        public void InflictDamage(RaceHorde attackedUnit, double damageSource)
+        {
+            attackedUnit.HealthLevel -= damageSource;
+        }
     }
 }

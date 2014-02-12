@@ -9,8 +9,8 @@ namespace BoardGame.UnitClasses
     class AlliancePriest : RaceAlliance
     {
         //Attack & Health start values
-        private const int InitialAttackLevel = 0;
-        private const int InitialHealthLevel = 50;
+        private const double InitialAttackLevel = 0;
+        private const double InitialHealthLevel = 50;
 
         //Unit constructor
         public AlliancePriest()
