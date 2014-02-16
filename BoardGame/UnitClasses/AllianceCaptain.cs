@@ -56,21 +56,18 @@ namespace BoardGame.UnitClasses
             this.SmallImage.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
             path = System.IO.Path.GetFullPath(@"..\..\Resources\Alliance\Frames\captain_big.png");
             this.BigImage.Source = new BitmapImage(new Uri(path, UriKind.Absolute));
+                        
         }
 
         public bool Move(Position destination)
         {
             //Check if the destination cell is not busy of Alliance unit
             foreach (var unit in InitializedTeams.allianceTeam)
-            {
-                //Commented with the reason below
-
-                //Error	1	'BoardGame.UnitClasses.RaceAlliance' does not contain a definition for 'Value' and no extension method 'Value' accepting a first argument of type 'BoardGame.UnitClasses.RaceAlliance' could be found (are you missing a using directive or an assembly reference?)	C:\Users\vesel_000\Documents\GitHub\BoardGameTelerikTeamProject\BoardGame\UnitClasses\AllianceCaptain.cs	57	45	BoardGame
-
-                //if (destination.col == unit.Value.ColPosition && destination.row == unit.Value.RowPosition)
-                //{
-                //    return false;
-                //}
+            {     
+                if (destination.col == unit.ColPosition && destination.row == unit.RowPosition)
+                {
+                    return false;
+                }
             }
 
             int deltaRow = (int)Math.Abs(destination.row - this.RowPosition);
