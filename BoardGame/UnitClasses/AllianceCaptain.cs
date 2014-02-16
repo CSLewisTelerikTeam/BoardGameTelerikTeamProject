@@ -13,7 +13,7 @@ namespace BoardGame.UnitClasses
     {        
         //Attack & Health start values
         private const int InitialAttackLevel = 35;
-        private const int InitialHealthLevel = 70;
+        private const int InitialHealthLevel = 70;    
         
         //Unit's images field
         private Image smallImage;
@@ -44,11 +44,16 @@ namespace BoardGame.UnitClasses
         }
 
         //Unit constructor
-        public AllianceCaptain()
+        public AllianceCaptain(int InitialRowPosition = 0, int InitialColPosition = 0)
         {
             this.UnitType = AllianceTypeUnits.Captain;
+
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+
+            this.RowPosition = InitialRowPosition;
+            this.ColPosition = InitialColPosition;
+
             this.SmallImage = new Image();
             this.BigImage = new Image();
 

@@ -13,11 +13,15 @@ namespace BoardGame.UnitClasses
         private const double InitialHealthLevel = 50;
 
         //Unit constructor
-        public HordeGrunt()
+        public HordeGrunt(int InitialRowPosition = 0, int InitialColPosition = 0)
         {
             this.UnitType = HordeTypeUnits.Grunt;
+            
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+
+            this.RowPosition = InitialRowPosition;
+            this.ColPosition = InitialColPosition;
         }
     }
 }

@@ -43,11 +43,16 @@ namespace BoardGame.UnitClasses
         }
 
         //Unit constructor
-        public AllianceKing()
+        public AllianceKing(int InitialRowPosition = 0, int InitialColPosition = 0)
         {
             this.UnitType = AllianceTypeUnits.King;
+            
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+            
+            this.RowPosition = InitialRowPosition;
+            this.ColPosition = InitialColPosition;
+            
             this.SmallImage = new Image();
             this.BigImage = new Image();
 

@@ -13,11 +13,15 @@ namespace BoardGame.UnitClasses
         private const double InitialHealthLevel = 80;
 
         //Unit constructor
-        public AllianceWarGolem()
+        public AllianceWarGolem(int InitialRowPosition = 0, int InitialColPosition = 0)
         {
             this.UnitType = AllianceTypeUnits.WarGolem;
+            
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+
+            this.RowPosition = InitialRowPosition;
+            this.ColPosition = InitialColPosition;
         }
 
         public override bool IsMoveable(Position destination)

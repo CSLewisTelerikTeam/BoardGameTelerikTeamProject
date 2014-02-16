@@ -13,11 +13,15 @@ namespace BoardGame.UnitClasses
         private const double InitialHealthLevel = 60;
 
         //Unit constructor
-        public HordeWarlock()
+        public HordeWarlock(int InitialRowPosition = 0, int InitialColPosition = 0)
         {
             this.UnitType = HordeTypeUnits.Warlock;
+
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+
+            this.RowPosition = InitialRowPosition;
+            this.ColPosition = InitialColPosition;
         }
     }
 }
