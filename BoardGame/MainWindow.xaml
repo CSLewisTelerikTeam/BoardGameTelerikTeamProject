@@ -560,91 +560,91 @@
                    Grid.Row="6"
                    Grid.Column="0"
                    Source="Resources\Alliance\Frames\squire_small.png"
-                   MouseLeftButtonDown="Squire01_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Squire02"                   
                    Grid.Row="6"
                    Grid.Column="1"
                    Source="Resources\Alliance\Frames\squire_small.png"
-                   MouseLeftButtonDown="Squire02_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Squire03"                   
                    Grid.Row="6"
                    Grid.Column="2"
                    Source="Resources\Alliance\Frames\squire_small.png"
-                   MouseLeftButtonDown="Squire03_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Squire04"                   
                    Grid.Row="6"
                    Grid.Column="3"
                    Source="Resources\Alliance\Frames\squire_small.png"
-                   MouseLeftButtonDown="Squire04_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Squire05"                   
                    Grid.Row="6"
                    Grid.Column="4"
                    Source="Resources\Alliance\Frames\squire_small.png"
-                   MouseLeftButtonDown="Squire05_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Squire06"                   
                    Grid.Row="6"
                    Grid.Column="5"
                    Source="Resources\Alliance\Frames\squire_small.png"
-                   MouseLeftButtonDown="Squire06_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Squire07"                   
                    Grid.Row="6"
                    Grid.Column="6"
                    Source="Resources\Alliance\Frames\squire_small.png"
-                   MouseLeftButtonDown="Squire07_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Squire08"                   
                    Grid.Row="6"
                    Grid.Column="7"
                    Source="Resources\Alliance\Frames\squire_small.png"
-                   MouseLeftButtonDown="Squire08_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Mage01"                   
                    Grid.Row="7"
                    Grid.Column="1"
                    Source="Resources\Alliance\Frames\mage_small.png"
-                   MouseLeftButtonDown="Mage01_MouseLeftButtonDown_1">                
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">                
             </Image>
 
             <Image Name="Mage02"                   
                    Grid.Row="7"
                    Grid.Column="6"
                    Source="Resources\Alliance\Frames\mage_small.png"
-                   MouseLeftButtonDown="Mage02_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Captain01"                   
                    Grid.Row="7"
                    Grid.Column="2"                   
                    Source="Resources\Alliance\Frames\captain_small.png"
-                   MouseLeftButtonDown="Captain01LeftButton">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Captain02"                   
                    Grid.Row="7"
                    Grid.Column="5"                   
                    Source="Resources\Alliance\Frames\captain_small.png"
-                   MouseLeftButtonDown="Captain02_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="WarGolem01"                   
                    Grid.Row="7"
                    Grid.Column="0"                   
                    Source="Resources\Alliance\Frames\war_golem_small.png"
-                   MouseLeftButtonDown="WarGolem01_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
                 
             </Image>
 
@@ -652,7 +652,7 @@
                    Grid.Row="7"
                    Grid.Column="7"                   
                    Source="Resources\Alliance\Frames\war_golem_small.png"
-                   MouseLeftButtonDown="WarGolem02_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
 
             </Image>
 
@@ -660,14 +660,14 @@
                    Grid.Row="7"
                    Grid.Column="4"
                    Source="Resources\Alliance\Frames\king_small.png"
-                   MouseLeftButtonDown="King_MouseLeftButtonDown_1">
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown">
             </Image>
 
             <Image Name="Priest"                   
                    Grid.Row="7"
                    Grid.Column="3"
                    Source="Resources\Alliance\Frames\priest_small.png"
-                   MouseLeftButtonDown="Priest_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -677,8 +677,8 @@
                    Grid.Row="1"
                    Grid.Column="0"                   
                    Source="Resources\Horde\frames\grunt_small.png"
-                   MouseLeftButtonDown="Grunt01_MouseLeftButtonDown_1"
-                   MouseRightButtonDown="Grunt01_MouseRightButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
+                   MouseRightButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -686,7 +686,7 @@
                    Grid.Row="1"
                    Grid.Column="1"                   
                    Source="Resources\Horde\frames\grunt_small.png"
-                   MouseLeftButtonDown="Grunt02_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    
                    >
             </Image>
@@ -695,7 +695,7 @@
                    Grid.Row="1"
                    Grid.Column="2"                   
                    Source="Resources\Horde\frames\grunt_small.png"
-                   MouseLeftButtonDown="Grunt03_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -703,7 +703,7 @@
                    Grid.Row="1"
                    Grid.Column="3"                   
                    Source="Resources\Horde\frames\grunt_small.png"
-                   MouseLeftButtonDown="Grunt04_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -711,7 +711,7 @@
                    Grid.Row="1"
                    Grid.Column="4"                   
                    Source="Resources\Horde\frames\grunt_small.png"
-                   MouseLeftButtonDown="Grunt05_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -719,7 +719,7 @@
                    Grid.Row="1"
                    Grid.Column="5"                   
                    Source="Resources\Horde\frames\grunt_small.png"
-                   MouseLeftButtonDown="Grunt06_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -727,7 +727,7 @@
                    Grid.Row="1"
                    Grid.Column="6"                   
                    Source="Resources\Horde\frames\grunt_small.png"
-                   MouseLeftButtonDown="Grunt07_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -735,7 +735,7 @@
                    Grid.Row="1"
                    Grid.Column="7"                   
                    Source="Resources\Horde\frames\grunt_small.png"
-                   MouseLeftButtonDown="Grunt08_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -743,7 +743,7 @@
                    Grid.Row="0"
                    Grid.Column="1"                   
                    Source="Resources\Horde\frames\warlock_small.png"
-                   MouseLeftButtonDown="Warlock01_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -751,7 +751,7 @@
                    Grid.Row="0"
                    Grid.Column="6"                   
                    Source="Resources\Horde\frames\warlock_small.png"
-                   MouseLeftButtonDown="Warlock02_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -759,7 +759,7 @@
                    Grid.Row="0"
                    Grid.Column="2"                   
                    Source="Resources\Horde\frames\commander_small.png"
-                   MouseLeftButtonDown="Commander01_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -767,7 +767,7 @@
                    Grid.Row="0"
                    Grid.Column="5"                   
                    Source="Resources\Horde\frames\commander_small.png"
-                   MouseLeftButtonDown="Commander02_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -775,7 +775,7 @@
                    Grid.Row="0"
                    Grid.Column="0"                   
                    Source="Resources\Horde\frames\demolisher_small.png"
-                   MouseLeftButtonDown="Demolisher01_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -783,7 +783,7 @@
                    Grid.Row="0"
                    Grid.Column="7"                   
                    Source="Resources\Horde\frames\demolisher_small.png"
-                   MouseLeftButtonDown="Demolisher02_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -791,7 +791,7 @@
                    Grid.Row="0"
                    Grid.Column="3"                   
                    Source="Resources\Horde\frames\shaman_small.png"
-                   MouseLeftButtonDown="Shaman_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
@@ -801,7 +801,7 @@
                    Grid.Row="0"
                    Grid.Column="4"                   
                    Source="Resources\Horde\frames\warchief_small.png"
-                   MouseLeftButtonDown="Warchief_MouseLeftButtonDown_1"
+                   MouseLeftButtonDown="Unit_MouseLeftButtonDown"
                    >
             </Image>
 
