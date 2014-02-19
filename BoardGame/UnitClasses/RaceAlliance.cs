@@ -11,15 +11,16 @@ namespace BoardGame.UnitClasses
 
     public enum AllianceTypeUnits
     {
-        Squire, Mage, Sergeant, Captain, WarGolem, Priest, King
+        Squire01, Squire02, Squire03, Squire04, Squire05, Squire06, Squire07, Squire08,
+        Mage01, Mage02, Captain01, Captain02, WarGolem01, WarGolem02, Priest, King
     }
 
     abstract class RaceAlliance : Unit, IMoveable
     {
-        protected AllianceTypeUnits UnitType { get; set; }
+        public AllianceTypeUnits UnitType { get; set; }
 
         public virtual bool IsMoveable(Position destination)
-        {
+        {   
             throw new NotImplementedException();
         }
 

@@ -9,16 +9,19 @@ namespace BoardGame.UnitClasses
     class AllianceSquire : RaceAlliance, IMoveable
     {
         //Attack & Health start values
-        private const double InitialAttackLevel = 20;
-        private const double InitialHealthLevel = 50;
+        private const double InitialAttackLevel = 2;
+        private const double InitialHealthLevel = 4;
 
         //Unit constructor
-        public AllianceSquire(int InitialRowPosition = 0, int InitialColPosition = 0)
+        public AllianceSquire(int InitialRowPosition, int InitialColPosition, AllianceTypeUnits unitType)
         {
-            this.UnitType = AllianceTypeUnits.Squire;
+            this.UnitType = unitType;
+            this.UnitRace = UnitRaceType.alliance;
             
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+
+            this.CounterAttackLevel = InitialAttackLevel / 2;
 
             this.RowPosition = InitialRowPosition;
             this.ColPosition = InitialColPosition;

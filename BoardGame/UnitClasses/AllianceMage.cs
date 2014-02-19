@@ -9,19 +9,22 @@ namespace BoardGame.UnitClasses
     class AllianceMage :RaceAlliance, IMoveable
     {
         //Attack & Health start values
-        private const double InitialAttackLevel = 30;
-        private const double InitialHealthLevel = 60;
+        private const double InitialAttackLevel = 3;
+        private const double InitialHealthLevel = 7;
 
         //Unit constructor
-        public AllianceMage(int InitialRowPosition = 0, int InitialColPosition = 0)
+        public AllianceMage(int InitialRowPosition, int InitialColPosition, AllianceTypeUnits unitType)
         {
-            this.UnitType = AllianceTypeUnits.Mage;
+            this.UnitType = unitType;
+            this.UnitRace = UnitRaceType.alliance;
 
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
 
             this.RowPosition = InitialRowPosition;
             this.ColPosition = InitialColPosition;
+
+            this.CounterAttackLevel = InitialAttackLevel / 2;
         }
 
         public override bool IsMoveable(Position destination)

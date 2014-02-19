@@ -14,7 +14,7 @@ namespace BoardGame.UnitClasses
         bool IsMoveable(Position destination);
     }
 
-    interface IAttacking
+    interface IAttackable
     {
         void Attack(Unit objectToAttack);
     }

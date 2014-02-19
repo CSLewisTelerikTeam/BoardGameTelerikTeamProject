@@ -22,6 +22,11 @@ namespace BoardGame.UnitClasses
         }
     }
 
+    public enum UnitRaceType
+    {
+        horde, alliance
+    }
+
     abstract class Unit
     {
         //Private Fields 
@@ -31,6 +36,8 @@ namespace BoardGame.UnitClasses
         private Position unitPosition;
         
         //Properties over private fields, in case need of data validation
+        public UnitRaceType UnitRace { get; set; }
+
         public double HealthLevel
         {
             get {return this.healthLevel;}
@@ -42,6 +49,8 @@ namespace BoardGame.UnitClasses
             get { return this.attackLevel; }
             set { this.attackLevel = value; }
         }
+
+        public double CounterAttackLevel { get; set; }        
 
         public int RowPosition
         {

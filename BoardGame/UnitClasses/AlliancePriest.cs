@@ -10,18 +10,22 @@ namespace BoardGame.UnitClasses
     {
         //Attack & Health start values
         private const double InitialAttackLevel = 0;
-        private const double InitialHealthLevel = 50;
+        private const double InitialHealthLevel = 10;
 
         //Unit constructor
-        public AlliancePriest(int InitialRowPosition = 0, int InitialColPosition = 0)
+        public AlliancePriest(int InitialRowPosition, int InitialColPosition, AllianceTypeUnits unitType)
         {
-            this.UnitType = AllianceTypeUnits.Priest;
+            this.UnitType = unitType;
+            this.UnitRace = UnitRaceType.alliance;
 
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
 
+            this.CounterAttackLevel = InitialAttackLevel / 2;
+
             this.RowPosition = InitialRowPosition;
             this.ColPosition = InitialColPosition;
+                        
         }
     }
 }

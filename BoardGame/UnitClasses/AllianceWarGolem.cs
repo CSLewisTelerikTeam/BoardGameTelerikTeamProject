@@ -9,16 +9,19 @@ namespace BoardGame.UnitClasses
     class AllianceWarGolem : RaceAlliance, IMoveable
     {
         //Attack & Health start values
-        private const double InitialAttackLevel = 30;
-        private const double InitialHealthLevel = 80;
+        private const double InitialAttackLevel = 4;
+        private const double InitialHealthLevel = 8;
 
         //Unit constructor
-        public AllianceWarGolem(int InitialRowPosition = 0, int InitialColPosition = 0)
+        public AllianceWarGolem(int InitialRowPosition, int InitialColPosition, AllianceTypeUnits unitType)
         {
-            this.UnitType = AllianceTypeUnits.WarGolem;
+            this.UnitType = unitType;
+            this.UnitRace = UnitRaceType.alliance;
             
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+
+            this.CounterAttackLevel = InitialAttackLevel / 2;
 
             this.RowPosition = InitialRowPosition;
             this.ColPosition = InitialColPosition;
@@ -50,6 +53,15 @@ namespace BoardGame.UnitClasses
 
                 for (int i = 0; i < Math.Abs(deltaRow); i++)
                 {
+                    if (deltaRow < 0)
+                    {
+                        currentRow--;
+                    }
+                    else
+                    {
+                        currentRow++;
+                    }
+
                     foreach (var unit in InitializedTeams.allianceTeam)
                     {
                         if (unit.ColPosition == currentCol && unit.RowPosition == currentRow)
@@ -66,14 +78,7 @@ namespace BoardGame.UnitClasses
                         }
                     }
 
-                    if (deltaRow < 0)
-                    {
-                        currentRow--;
-                    }
-                    else
-                    {
-                        currentRow++;
-                    }
+                    
                 }
 
                 return true;
@@ -85,6 +90,15 @@ namespace BoardGame.UnitClasses
 
                 for (int i = 0; i < Math.Abs(deltaCol); i++)
                 {
+                    if (deltaCol < 0)
+                    {
+                        currentCol--;
+                    }
+                    else
+                    {
+                        currentCol++;
+                    }
+
                     foreach (var unit in InitializedTeams.allianceTeam)
                     {
                         if (unit.ColPosition == currentCol && unit.RowPosition == currentRow)
@@ -101,14 +115,7 @@ namespace BoardGame.UnitClasses
                         }
                     }
 
-                    if (deltaCol < 0)
-                    {
-                        currentCol--;
-                    }
-                    else
-                    {
-                        currentCol++;
-                    }
+                    
                 }
 
                 return true;

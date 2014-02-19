@@ -11,8 +11,8 @@ namespace BoardGame.UnitClasses
     class AllianceKing : RaceAlliance, IMoveable
     {
         //Attack & Health start values
-        private const double InitialAttackLevel = 40;
-        private const double InitialHealthLevel = 100;
+        private const double InitialAttackLevel = 5;
+        private const double InitialHealthLevel = 10;
 
         //Unit's images field
         private Image smallImage;
@@ -43,12 +43,15 @@ namespace BoardGame.UnitClasses
         }
 
         //Unit constructor
-        public AllianceKing(int InitialRowPosition = 0, int InitialColPosition = 0)
+        public AllianceKing(int InitialRowPosition, int InitialColPosition, AllianceTypeUnits unitType)
         {
-            this.UnitType = AllianceTypeUnits.King;
+            this.UnitType = unitType;
+            this.UnitRace = UnitRaceType.alliance;
             
             this.AttackLevel = InitialAttackLevel;
             this.HealthLevel = InitialHealthLevel;
+
+            this.CounterAttackLevel = InitialAttackLevel / 2;
             
             this.RowPosition = InitialRowPosition;
             this.ColPosition = InitialColPosition;
@@ -81,7 +84,7 @@ namespace BoardGame.UnitClasses
             {
                 if (deltaCol > 0)
                 {
-                    for (int currentCol = this.ColPosition; currentCol <= destination.col; currentCol++)
+                    for (int currentCol = this.ColPosition+1; currentCol <= destination.col; currentCol++)
                     {
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
@@ -105,7 +108,7 @@ namespace BoardGame.UnitClasses
 
                 if (deltaCol < 0)
                 {
-                    for (int currentCol = this.ColPosition; currentCol >= destination.col; currentCol--)
+                    for (int currentCol = this.ColPosition-1; currentCol >= destination.col; currentCol--)
                     {
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
@@ -133,7 +136,7 @@ namespace BoardGame.UnitClasses
             {
                 if (deltaRow > 0)
                 {
-                    for (int currentRow = this.RowPosition; currentRow <= destination.row; currentRow++)
+                    for (int currentRow = this.RowPosition+1; currentRow <= destination.row; currentRow++)
                     {
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
@@ -155,9 +158,9 @@ namespace BoardGame.UnitClasses
                     return true;
                 }
 
-                if (deltaCol < 0)
+                if (deltaRow < 0)
                 {
-                    for (int currentRow = this.RowPosition; currentRow >= destination.row; currentRow--)
+                    for (int currentRow = this.RowPosition-1; currentRow >= destination.row; currentRow--)
                     {
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
@@ -190,6 +193,9 @@ namespace BoardGame.UnitClasses
                 {
                     if (deltaRow <0  && deltaCol <0)
                     {
+                        currentCol--;
+                        currentRow--;
+
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
                             if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
@@ -206,11 +212,12 @@ namespace BoardGame.UnitClasses
                             }
                         }
 
-                        currentCol--;
-                        currentRow--;
+                        
                     }
                     else if (deltaRow < 0 && deltaCol > 0)
                     {
+                        currentCol++;
+                        currentRow--;
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
                             if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
@@ -227,11 +234,12 @@ namespace BoardGame.UnitClasses
                             }
                         }
 
-                        currentCol++;
-                        currentRow--;
+                        
                     }
                     else if (deltaRow > 0 && deltaCol > 0)
                     {
+                        currentCol++;
+                        currentRow++;
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
                             if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
@@ -248,11 +256,12 @@ namespace BoardGame.UnitClasses
                             }
                         }
 
-                        currentCol++;
-                        currentRow++;
+                        
                     }
                     else if (deltaRow > 0 && deltaCol < 0)
                     {
+                        currentCol--;
+                        currentRow++;
                         foreach (var unit in InitializedTeams.allianceTeam)
                         {
                             if (currentRow == unit.RowPosition && currentCol == unit.ColPosition)
@@ -269,8 +278,7 @@ namespace BoardGame.UnitClasses
                             }
                         }
 
-                        currentCol--;
-                        currentRow++;
+                        
                     }                   
                     
                 }
